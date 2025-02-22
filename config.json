@@ -1,128 +1,172 @@
 {
-  "NOTIFICATION": false,
-  "notiGroup": false,
-  "language": "vi",
-  "DeveloperMode": false,
-  "autoCreateDB": true,
-  "allowInbox": false,
-  "facebookAccount": {
-    "email": "+84364464590",
-    "password": "Lamhao3010",
-    "2FA": ""
-  },
-  "commandDisabled": [
-    "autodown.js",
-    "cc2.js",
-    "snbot.js",
-    "scl.js",
-    "csl.js"
-  ],
-  "eventDisabled": [
-  ],
-  "BOXNOTI": "25326316900349352",
-  "FACEBOOK_ADMIN": "https://www.facebook.com/100038791595043",
-  "ZALO_ADMIN": "0364464590",
-  "ADMIN_NAME": "Lam Hao ",
-  "BOTNAME": "MaxBi🫴🤖",
-  "PREFIX": "*",
-  "ADMINBOT": [
-    "100038791595043"
-  ],
-  "NDH": [
-    "100038791595043"
-  ],
-  "UIDBOT": [
-    "1074491699"
-  ],
-  "DATABASE": {
-    "sqlite": {
-      "storage": "data.sqlite"
+    "NOTIFICATION": true,
+    "language": "vi",
+    "notiGroup": true,
+    "keyActive": "",
+    "DeveloperMode": false,
+    "autoCreateDB": true,
+    "allowInbox": true,
+    "commandDisabled": [
+        "autodown4.js",
+        "autoyt4.js",
+        "autoyt1.js",
+        "autoyt.js",
+        "autoyt2.js",
+        "simv2.js",
+        "phantich.js"
+    ],
+    "eventDisabled": [],
+    "autoRestart": 4500000000,
+    "EAAAAU": "",
+    "ACCESSTOKEN": "",
+    "FACEBOOK_ADMIN": "Lâm Hào",
+    "ZALO_ADMIN": "0364464590",
+    "ADMIN_NAME": "MaxBi",
+    "BOTNAME": "️MaxBi",
+    "PREFIX": "/",
+    "ADMINBOT": [
+        "100038791595043"
+    ],
+    "NDH": [
+        "100038791595043"
+    ],
+    "DATABASE": {
+        "sqlite": {
+            "storage": "data.sqlite"
+        }
+    },
+    "DESIGN": {
+        "Theme": "Red",
+        "Admin": "Phạm Minh Đồng",
+        "Setup": {
+            "Theme": "Mày có thể dùng các Theme như: Aqua, Fiery, Blue, Pink, Red, Retro, Sunlight, Teen, Summer, Flower, Ghost, and Hacker to enhance your terminal logs."
+        }
+    },
+    "APPSTATEPATH": "appstate.json",
+    "NPM_FCA": "./includes/f",
+    "ACCESSCOOKIE_WHITE": "",
+    "ACCESSCOOKIE_BLACK": "",
+    "configApi": {
+        "link": [
+            "Đéo có",
+            "https://www.nguyenmanh.name.vn"
+        ],
+        "key": [
+            "",
+            "x66MGQ25"
+        ],
+        "domain": "",
+        "keyApi": ""
+    },
+    "autoCleanCache": {
+        "Enable": true,
+        "CachePath": "./modules/commands/cache",
+        "AllowFileExtension": [
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".mp4",
+            ".mp3",
+            ".m4a",
+            ".ttf",
+            ".gif",
+            ".global.DB.json"
+        ]
+    },
+    "version": "4.6.9",
+    "iconUnsend": {
+        "status": true,
+        "icon": "👍"
+    },
+    "FCAOption": {
+        "forceLogin": true,
+        "listenEvents": true,
+        "pauseLog": true,
+        "logLevel": "error",
+        "selfListen": false,
+        "userAgent": "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21"
+    },
+    "boctham": {
+        "cooldownTime": ""
+    },
+    "cavevip": {
+        "cooldownTime": 1200000
+    },
+    "daily": {
+        "cooldownTime": 43200000,
+        "rewardCoin": 200000
+    },
+    "fbvideo": {
+        "API_KEY": ""
+    },
+    "hunter": {
+        "userToken": "D7tTFhgD",
+        "adminToken": "ZkSy3UsT"
+    },
+    "loto": {
+        "maxPlayers": 10,
+        "getDelay": 8
+    },
+    "math": {
+        "WOLFRAM": "T8J8YV-H265UQ762K"
+    },
+    "pokemon": {
+        "APIKEY": ""
+    },
+    "rname": {
+        "APIKEY": "mi451266190"
+    },
+    "shortvd": {
+        "APIKEY": "XSemUp2Zv5"
+    },
+    "sim": {
+        "APIKEY": "mzk_NZTUMEHKNZ2R0QVRCIU"
+    },
+    "video2": {
+        "YOUTUBE_API": "AIzaSyC1HQ3HHQSzgXdvlm5vZ2gWX0Ubk8GYD-c"
+    },
+    "work": {
+        "cooldownTime": ""
+    },
+    "xidach": {
+        "maxPlayers": 5,
+        "normalWinBonus": 1,
+        "superWinBonus": 2,
+        "epicWinBonus": 4
+    },
+    "log": {
+        "enable": true
+    },
+    "leave": {
+        "status": false,
+        "number": 2
+    },
+    "adminOnly": false,
+    "menu": {
+        "autoUnsend": {
+            "status": true,
+            "timeOut": 60
+        }
+    },
+    "goibot": {
+        "APIKEY": "LUVMIN"
+    },
+    "farm": {
+        "cooldownTime": 300000
+    },
+    "mode": "vdanime",
+    "shortlink": {
+        "apiKey": "pa7svHrb"
+    },
+    "kicktag": {
+        "kickTagDelay": 1
+    },
+    "facebookAccount": {
+        "email": "+84364464590",
+        "password": "Lamhao3010",
+        "2FA": ""
+    },
+    "autodown": {
+        "status": true
     }
-  },
-  "APPSTATEPATH": "appstate.json",
-  "autoCleanCache": {
-    "Enable": true,
-    "CachePath": "./modules/commands/cache",
-    "AllowFileExtension": [
-      ".png",
-      ".jpg",
-      ".jpeg",
-      ".mp4",
-      ".mp3",
-      ".m4a",
-      ".ttf",
-      ".gif"
-    ]
-  },
-  "iconUnsend": {
-    "status": true,
-    "icon": "😠"
-  },
-  "FCAOption": {
-    "forceLogin": true,
-    "listenEvents": true,
-    "pauseLog": true,
-    "logLevel": "error",
-    "selfListen": false,
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
-  },
-  "version": "3.5.0",
-  "daily": {
-    "cooldownTime": 43200000,
-    "rewardCoin": 200
-  },
-  "sing": {
-    "YOUTUBE_API": "AIzaSyCXtsOpIMInU5TOWkz0b2xjqwbx0aLUKJw",
-    "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
-  },
-  "work": {
-    "cooldownTime": 1200000
-  },
-  "log": {
-    "enable": true
-  },
-  "menu": {
-    "autoUnsend": {
-      "status": true,
-      "timeOut": 60
-    }
-  },
-  "loto": {
-    "maxPlayers": 10,
-    "getDelay": 8
-  },
-  "xidach": {
-    "maxPlayers": 5,
-    "normalWinBonus": 1,
-    "superWinBonus": 2,
-    "epicWinBonus": 4
-  },
-  "adminUpdate": {
-    "autoUnsend": true,
-    "sendNoti": true,
-    "timeToUnsend": 10
-  },
-  "adminOnly": false,
-  "subnautica": {
-    "APIKEY": ""
-  },
-  "rank": {
-    "APIKEY": "571752207151901|AC-zG86sv6U6kpnT0_snIHBOHJc"
-  },
-  "mine": {
-    "APIKEY": ""
-  },
-  "leave": {
-    "status": false,
-    "number": 0
-  },
-  "spamping": {
-    "spamDelay": 2
-  },
-  "a1": {
-    "autoUnsend": {
-      "status": true,
-      "timeOut": 60
-    }
-  }
 }
