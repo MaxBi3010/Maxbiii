@@ -3,11 +3,8 @@ const crypto = require('crypto');
 const os = require("os");
 const axios = require("axios");
 const fs = require('fs');
-const FormData = require('form-data');
-const path = require('path');
 const config = require('../config.json');
 const package = require('../package.json');
-
 
 module.exports.getYoutube = async function(t, e, i) {
     require("@distube/ytdl-core");
@@ -87,6 +84,28 @@ module.exports.getContent = async function(url) {
 
     return data;
   } catch (e) { return console.log(e); };
+}
+module.exports.catbox = async function(link) {
+try {
+  const { headers } = await axios.head(link);
+  const contentType = headers['content-type'];
+  const extension = contentType.split('/')[1] || 'bin';
+  const filePath = path.join(process.cwd(), 'modules', 'commands', 'cache', `${Date.now()}.${extension}`);
+  const response = await axios({ method: 'GET', url: link, responseType: 'stream' });
+  const writer = fs.createWriteStream(filePath);
+  response.data.pipe(writer);
+  await new Promise((resolve, reject) => writer.on('finish', resolve).on('error', reject));
+  const formData = new FormData();
+  formData.append('reqtype', 'fileupload');
+  formData.append('fileToUpload', fs.createReadStream(filePath));
+  const { data } = await axios.post('https://catbox.moe/user/api.php', formData, {
+    headers: formData.getHeaders(),
+  });
+  fs.unlinkSync(filePath);
+  return data;
+  } catch (error) {
+    throw new Error(`Error uploading catbox:`, error);
+  }
 }
 
 module.exports.randomString = function (length) {
@@ -201,38 +220,31 @@ module.exports.getStream = async function (url, type = "stream") {
   return response.data;
 };
 
-module.exports.imgur = async (url, type) => {
-  const imgur = require("imgur");
-  const ClientID = "4bc7f0dbff47809";
-  imgur.setClientId(ClientID);
-  const pathSave = __dirname + `/../modules/commands/cache/${Date.now()}.${type}`;
-  const { downloadFile } = global.utils;
-  await downloadFile(url, pathSave);
-  const uploadPromise = imgur.uploadFile(pathSave);
-  const getLink = await uploadPromise;
-  const link = getLink.link;
-  fs.unlinkSync(pathSave);
-  return link;
+module.exports.imgur = async (l) => {
+    const f = require("fs"), r = require('request');
+    try {
+        let p, t;
+        await new Promise((resolve, reject) => {
+            r(l).on('response', function (response) {
+                const e = response.headers['content-type'].split('/')[1];
+                t = response.headers['content-type'].split('/')[0];
+                p = process.cwd() + '/srcipts/cmds/cache' + `/${Date.now()}.${e}`;
+                response.pipe(f.createWriteStream(p)).on('finish', resolve).on('error', reject);
+            }).on('error', reject);
+        });       
+        const uploadResponse = await new Promise((resolve, reject) => {
+            r({
+                method: 'POST',
+                url: 'https://api.imgur.com/3/upload',
+                headers: {'Authorization': 'Client-ID c76eb7edd1459f3'},
+                formData: t === "video" ? {'video': f.createReadStream(p)} : {'image': f.createReadStream(p)}
+            }, (e, response, b) => {
+                if (e) {reject(e);return;}
+                resolve(JSON.parse(b));
+            });
+        });       
+        f.unlink(p, err => { if (err) throw new Error(err); });
+        return {link: uploadResponse.data.link};
+    } catch (e) { throw new Error(e); }
 };
-module.exports.catbox = async function(link) {
-try {
-  const { headers } = await axios.head(link);
-  const contentType = headers['content-type'];
-  const extension = contentType.split('/')[1] || 'bin';
-  const filePath = path.join(process.cwd(), 'modules', 'commands', 'cache', `${Date.now()}.${extension}`);
-  const response = await axios({ method: 'GET', url: link, responseType: 'stream' });
-  const writer = fs.createWriteStream(filePath);
-  response.data.pipe(writer);
-  await new Promise((resolve, reject) => writer.on('finish', resolve).on('error', reject));
-  const formData = new FormData();
-  formData.append('reqtype', 'fileupload');
-  formData.append('fileToUpload', fs.createReadStream(filePath));
-  const { data } = await axios.post('https://catbox.moe/user/api.php', formData, {
-    headers: formData.getHeaders(),
-  });
-  fs.unlinkSync(filePath);
-  return data;
-  } catch (error) {
-    throw new Error(`Error uploading catbox:`, error);
-  }
-}
+// Share làm chó, bán làm chó
